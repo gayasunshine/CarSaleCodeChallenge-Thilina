@@ -1,10 +1,20 @@
+using AutoMapper;
+using CarSale.CodeChallenge.Client.Validation;
+using CarSale.CodeChallenge.Database;
+using CarSale.CodeChallenge.Database.Repository;
+using CarSale.CodeChallenge.Domain.DomainProfile;
+using CarSale.CodeChallenge.Domain.Service;
+using CarSale.CodeChallenge.Shared.ViewModel;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace CarSale.CodeChallenge.Client
 {
@@ -20,8 +30,23 @@ namespace CarSale.CodeChallenge.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+
+
+            services.AddAutoMapper(typeof(DomainToEntityProfile));
+            services.AddTransient<IVehicleCreator, VehicleCreator>();
+            services.AddTransient<IVehicleDataService, VehicleDataService>();
+            services.AddControllersWithViews().AddFluentValidation();
+            services.AddTransient<IValidator<VehicleRequest>, VehicleValidator>();
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Car Sale Code Challenge", Version = "v1" });
+            });
+
+
             // In production, the Angular files will be served from this directory
+
+            services.AddDbContext<CarSaleCodeChallengeContext>(context => { context.UseInMemoryDatabase("VehicleDataBase"); });
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
@@ -34,6 +59,13 @@ namespace CarSale.CodeChallenge.Client
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Enable middleware to serve generated Swagger as a JSON endpoint.
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAPI V1");
+                });
             }
             else
             {
@@ -56,6 +88,7 @@ namespace CarSale.CodeChallenge.Client
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+
             });
 
             app.UseSpa(spa =>

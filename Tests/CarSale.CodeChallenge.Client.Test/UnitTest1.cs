@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace CarSale.CodeChallenge.Domain.Test
+namespace CarSale.CodeChallenge.Client.Test
 {
     public class UnitTest1
     {

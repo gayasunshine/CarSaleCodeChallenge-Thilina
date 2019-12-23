@@ -1,0 +1,71 @@
+<h1>{{title}}</h1>
+<h3>Car</h3>
+<hr />
+<div asp-validation-summary="ModelOnly"></div>
+<form [formGroup]="carForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Make</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="make">
+    </div>
+    <span class="text-danger" *ngIf="make?.invalid && formDir.submitted">
+      Make is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Model</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="model">
+    </div>
+    <span class="text-danger" *ngIf="model?.invalid && formDir.submitted">
+      Model is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12" for="BodyType">BodyType</label>
+    <div class="col-md-4">
+      <select class="form-control" data-val="true" formControlName="bodyType">
+        <option value="">-- Select Body Type --</option>
+        <option value="HatchBack">HatchBack</option>
+        <option value="Sedan">Sedan</option>
+      </select>
+    </div>
+    <span class="text-danger" *ngIf="bodyType?.invalid && formDir.submitted">
+      Body Type is required
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">No of Weels</label>
+    <div class="col-md-4">
+      <input class="form-control" type="number" formControlName="noOfWeels">
+    </div>
+    <span class="text-danger" *ngIf="noOfWeels?.invalid && formDir.submitted">
+      No of Weels is required.
+    </span>
+    <span asp-validation-for="noOfWeels" title="bbb"></span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">No of Doors</label>
+    <div class="col-md-4">
+      <input class="form-control" type="number" formControlName="noOfDoors">
+    </div>
+    <span class="text-danger" *ngIf="noOfDoors?.invalid && formDir.submitted">
+      No of Doors is required.
+    </span>
+    <span asp-validation-for="noOfDoors" title="aaa"></span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Engine</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="engine">
+    </div>
+    <span class="text-danger" *ngIf="engine?.invalid && formDir.submitted">
+      Engine is required.
+    </span>
+  </div>
+  <hr />
+  <div class="form-group">
+    <button type="submit" class=" btn btn-primary">Save</button>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </div>
+</form>
