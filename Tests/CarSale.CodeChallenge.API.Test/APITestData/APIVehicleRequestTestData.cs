@@ -1,7 +1,4 @@
 ﻿using CarSale.CodeChallenge.Shared.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace CarSale.CodeChallenge.API.Test

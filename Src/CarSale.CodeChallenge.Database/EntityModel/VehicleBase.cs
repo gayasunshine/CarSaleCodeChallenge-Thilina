@@ -1,8 +1,7 @@
 ﻿using CarSale.CodeChallenge.Shared.SharedVehicleTypeEnum;
-
 namespace CarSale.CodeChallenge.Database.EntityModel
 {
-   public class VehicleBase
+    public class VehicleBase
     {
         public int Id { get; set; }
         public string Make { get; set; }

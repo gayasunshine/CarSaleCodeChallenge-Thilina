@@ -2,7 +2,7 @@
 
 namespace CarSale.CodeChallenge.Shared.ViewModel
 {
-   public partial class VehicleRequest
+    public partial class VehicleRequest
     {
         public int Id { get; set; }
         public string Make { get; set; }

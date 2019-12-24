@@ -1,6 +1,7 @@
-<h1>{{title}}</h1>
-<h3>Car</h3>
-<hr />
+
+<div class="alert alert-success" role="alert" *ngIf="successfulSave">
+  Person saved successfully!
+</div>
 <div asp-validation-summary="ModelOnly"></div>
 <form [formGroup]="carForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="form-group row">

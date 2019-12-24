@@ -27,8 +27,6 @@ export class CreateCarComponent implements OnInit {
         this.VehicleType = this._avRoute.snapshot.params['vehicleType']
         {
             this.VehicleType = this._avRoute.snapshot.params['vehicleType'];
-            alert(this.VehicleType);
-          
 
         }
         this.carForm = this._fb.group({
@@ -41,8 +39,6 @@ export class CreateCarComponent implements OnInit {
             noOfDoors: ['', [Validators.required]],
             engine: ['', [Validators.required]],
         })
-
-        alert(this.VehicleType);
     }
 
     ngOnInit() {
@@ -53,17 +49,14 @@ export class CreateCarComponent implements OnInit {
         if (!this.carForm.valid) {
             return;
         }
-        alert(this.VehicleType);
 
         if (this.title === 'Create') {
             this._vehicleService.createVehicle(this.carForm.value)
                 .subscribe(success => {
-                    this.toastr.success('Inserted successfully', 'EMP. Register');
-                }, error => this.toastr.error("Error"));
+                    this.toastr.success('Vehicle Created Sucsessfully', "ID:" + success);
+                }, error => this.toastr.error("Something Went Wrong"));
 
         }
-
-        
         
     }
 

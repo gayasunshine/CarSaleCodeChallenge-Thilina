@@ -1,9 +1,6 @@
 ﻿using CarSale.CodeChallenge.Database.EntityModel;
 using CarSale.CodeChallenge.Database.Repository;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CarSale.CodeChallenge.Domain.Test.FackeDataService
 {
@@ -18,7 +15,7 @@ namespace CarSale.CodeChallenge.Domain.Test.FackeDataService
 
         }
 
-      public  int AddVehicle(Vehicle vehicle)
+        public int AddVehicle(Vehicle vehicle)
         {
             _request.Add(vehicle);
             return vehicle.Id;

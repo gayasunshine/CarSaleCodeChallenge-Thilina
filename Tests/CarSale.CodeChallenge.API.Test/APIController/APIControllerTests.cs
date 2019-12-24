@@ -9,7 +9,7 @@ using Xunit;
 
 namespace CarSale.CodeChallenge.API.Test.APIController
 {
-    public  class APIControllerTests
+    public class APIControllerTests
     {
         private readonly VehicleCreatorController _controller;
         private readonly IVehicleCreator _service;
@@ -33,7 +33,7 @@ namespace CarSale.CodeChallenge.API.Test.APIController
         [ClassData(typeof(APIVehicleRequestData))]
         public void VehicleCreate_ControllerReturnResponceHasCreatedItem(VehicleRequest input)
         {
- 
+
             // Act
             var createdResponse = _controller.Post(input) as CreatedAtActionResult;
             var item = createdResponse.Value;
@@ -54,5 +54,5 @@ namespace CarSale.CodeChallenge.API.Test.APIController
         }
 
     }
-    }
+}
 

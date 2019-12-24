@@ -1,8 +1,6 @@
 ﻿using CarSale.CodeChallenge.Domain.Service;
 using CarSale.CodeChallenge.Shared.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CarSale.CodeChallenge.API.Test.FackeService
 {
@@ -15,8 +13,6 @@ namespace CarSale.CodeChallenge.API.Test.FackeService
             {
             };
         }
-
-
 
         public int CreateVehicle(VehicleRequest newItem)
         {

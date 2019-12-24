@@ -1,22 +1,15 @@
 ﻿using CarSale.CodeChallenge.Shared.SharedVehicleTypeEnum;
 using CarSale.CodeChallenge.Shared.ViewModel;
-using System.Collections.Generic;
 
 namespace CarSale.CodeChallenge.Domain.DomainModels
 {
     public class Car : IVehicle
     {
-
         //Unique Properties for Car Type
         public int NoOfWeels { get; set; }
         public int NOOfDoors { get; set; }
         public string Engine { get; set; }
         public string BodyType { get; set; }
-
-
-
-
-
         public Car(VehicleRequest vehicle)
         {
 
@@ -28,16 +21,11 @@ namespace CarSale.CodeChallenge.Domain.DomainModels
             NoOfWeels = vehicle.NoOfWeels;
             NOOfDoors = vehicle.NoOfDoors;
             Engine = vehicle.Engine;
-
-
-
-
         }
         public int Id { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
         public VehicleTypes VehicleType { get; set; }
-
 
     }
 }

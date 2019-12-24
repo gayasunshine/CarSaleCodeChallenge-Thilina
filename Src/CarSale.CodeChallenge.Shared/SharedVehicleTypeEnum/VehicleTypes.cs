@@ -1,6 +1,6 @@
 ﻿namespace CarSale.CodeChallenge.Shared.SharedVehicleTypeEnum
 {
-    public  enum VehicleTypes
+    public enum VehicleTypes
     {
         Car,
         Van,

@@ -8,9 +8,9 @@ namespace CarSale.CodeChallenge.Domain.DomainProfile
     {
         public DomainToEntityProfile()
         {
-            CreateMap<IVehicle, VehicleBase>() .Include<Car, Vehicle>();
+            CreateMap<IVehicle, VehicleBase>().Include<Car, Vehicle>();
             CreateMap<Car, Vehicle>();
         }
-        
+
     }
 }

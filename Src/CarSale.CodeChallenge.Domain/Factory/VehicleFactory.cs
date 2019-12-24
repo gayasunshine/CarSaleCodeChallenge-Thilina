@@ -5,8 +5,9 @@ using System;
 
 namespace CarSales.CodeChallenge.Shared.Factory
 {
-   public static class VehicleFactory
+    public static class VehicleFactory
     {
+        //Factory Method for Determin the Vehicle that needs Create
         public static IVehicle CreateVehicle(VehicleRequest vehicle)
         {
             IVehicle resolvedVehicle = null;
@@ -23,10 +24,6 @@ namespace CarSales.CodeChallenge.Shared.Factory
                     break;
             }
             return resolvedVehicle;
-
-
-
-
         }
 
     }

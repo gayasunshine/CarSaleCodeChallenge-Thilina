@@ -15,7 +15,7 @@ namespace CarSale.CodeChallenge.Database
         }
 
         public DbSet<Vehicle> Vehicle { get; set; }
-       
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

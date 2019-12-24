@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using CarSale.CodeChallenge.Database.EntityModel;
 using CarSale.CodeChallenge.Database.Repository;
-using CarSale.CodeChallenge.Domain.DomainModels;
 using CarSale.CodeChallenge.Shared.ViewModel;
 using CarSales.CodeChallenge.Shared.Factory;
-
 namespace CarSale.CodeChallenge.Domain.Service
 {
     public class VehicleCreator : IVehicleCreator
@@ -20,14 +18,16 @@ namespace CarSale.CodeChallenge.Domain.Service
         public int CreateVehicle(VehicleRequest vehicle)
         {
             int vehicleId = 0;
+            //Get the resolved vehicle from Factory
             var createdVehicle = VehicleFactory.CreateVehicle(vehicle);
+            //Map the Ivehicle for Entity Type by Auto Mapper
             var vehicleEntity = _mapper.Map<Vehicle>(createdVehicle);
             if (vehicleEntity != null)
             {
                 vehicleId = _service.AddVehicle(vehicleEntity);
             }
             return vehicleId;
-            
+
         }
     }
 }

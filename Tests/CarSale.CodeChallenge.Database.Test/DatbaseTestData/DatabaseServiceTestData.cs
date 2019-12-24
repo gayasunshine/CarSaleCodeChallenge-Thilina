@@ -1,12 +1,9 @@
 ﻿using CarSale.CodeChallenge.Database.EntityModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace CarSale.CodeChallenge.Database.Test.DatbaseTestData
 {
-   public class DatabaseServiceTestData: TheoryData<Vehicle,int>
+    public class DatabaseServiceTestData : TheoryData<Vehicle, int>
     {
         public DatabaseServiceTestData()
         {
@@ -20,7 +17,7 @@ namespace CarSale.CodeChallenge.Database.Test.DatbaseTestData
                 NoOfWeels = 5,
                 NoOfDoors = 4,
                 Engine = "gg"
-            },1);
+            }, 1);
             Add(new Vehicle()
             {
                 Id = 0,
@@ -31,7 +28,7 @@ namespace CarSale.CodeChallenge.Database.Test.DatbaseTestData
                 NoOfWeels = 5,
                 NoOfDoors = 4,
                 Engine = "tt"
-            },2);
+            }, 2);
         }
     }
 }

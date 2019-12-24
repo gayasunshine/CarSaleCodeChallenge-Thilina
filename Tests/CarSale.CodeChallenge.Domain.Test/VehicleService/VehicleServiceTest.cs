@@ -5,7 +5,6 @@ using CarSale.CodeChallenge.Domain.Service;
 using CarSale.CodeChallenge.Domain.Test.FackeDataService;
 using CarSale.CodeChallenge.Domain.Test.VehicleServiceTestData;
 using CarSale.CodeChallenge.Shared.ViewModel;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using Xunit;
 
@@ -13,8 +12,6 @@ namespace CarSale.CodeChallenge.Domain.Test.VehicleService
 {
     public class VehicleServiceTest
     {
-
-
         private readonly IVehicleDataService _dataservice;
         private readonly VehicleCreator _service;
         public VehicleServiceTest()
@@ -51,7 +48,7 @@ namespace CarSale.CodeChallenge.Domain.Test.VehicleService
                 NoOfDoors = 4,
                 Engine = "tt"
             };
-           
+
             Exception ex = Assert.Throws<NotImplementedException>(() => _service.CreateVehicle(vehicle));
             Assert.Equal("Sorry Type is not Supported", ex.Message);
         }
