@@ -6,7 +6,7 @@ namespace CarSale.CodeChallenge.Database.EntityModel
     {
         
         public int NoOfWeels { get; set; }
-        public int NOOfDoors { get; set; }
+        public int NoOfDoors { get; set; }
         public string Engine { get; set; }
         public string BodyType { get; set; }
 

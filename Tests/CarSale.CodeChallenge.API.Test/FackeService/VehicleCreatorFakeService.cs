@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CarSale.CodeChallenge.Domain.Test.FackeService
+namespace CarSale.CodeChallenge.API.Test.FackeService
 {
     public class VehicleCreatorFakeService : IVehicleCreator
     {
@@ -14,14 +14,14 @@ namespace CarSale.CodeChallenge.Domain.Test.FackeService
             _request = new List<VehicleRequest>()
             {
             };
-            }
+        }
 
 
 
         public int CreateVehicle(VehicleRequest newItem)
-            {
-                _request.Add(newItem);
-                return newItem.Id;
-            }
+        {
+            _request.Add(newItem);
+            return newItem.Id;
         }
     }
+}

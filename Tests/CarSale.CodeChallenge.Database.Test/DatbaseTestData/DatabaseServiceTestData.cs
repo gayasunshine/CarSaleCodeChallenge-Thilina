@@ -1,18 +1,18 @@
-﻿using CarSale.CodeChallenge.Shared.ViewModel;
+﻿using CarSale.CodeChallenge.Database.EntityModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace CarSale.CodeChallenge.Domain.Test.ServiceTestData
+namespace CarSale.CodeChallenge.Database.Test.DatbaseTestData
 {
-    public class DummyServiceData : TheoryData<VehicleRequest>
+   public class DatabaseServiceTestData: TheoryData<Vehicle,int>
     {
-        public DummyServiceData()
+        public DatabaseServiceTestData()
         {
-            Add(new VehicleRequest()
+            Add(new Vehicle()
             {
-                Id = 1,
+                Id = 0,
                 Make = "aa",
                 Model = "bb",
                 VehicleType = Shared.SharedVehicleTypeEnum.VehicleTypes.Car,
@@ -20,10 +20,10 @@ namespace CarSale.CodeChallenge.Domain.Test.ServiceTestData
                 NoOfWeels = 5,
                 NoOfDoors = 4,
                 Engine = "gg"
-            });
-            Add(new VehicleRequest()
+            },1);
+            Add(new Vehicle()
             {
-                Id = 2,
+                Id = 0,
                 Make = "dd",
                 Model = "gg",
                 VehicleType = Shared.SharedVehicleTypeEnum.VehicleTypes.Car,
@@ -31,10 +31,7 @@ namespace CarSale.CodeChallenge.Domain.Test.ServiceTestData
                 NoOfWeels = 5,
                 NoOfDoors = 4,
                 Engine = "tt"
-            });
+            },2);
         }
-
-
     }
 }
-
